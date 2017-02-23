@@ -10,7 +10,7 @@ From here you can post a helper request in the language of your choice. Leave a 
 
 [TRELLO:  User Stories](https://trello.com/b/pYBlbrqF/project-2-code-valid)
 ##ERD
-![ERD] (assets/ERD-v2.png)
+![ERD] (assets/ERDv3.png)
 ##Login Page
 ![Login Page] (assets/Login Page.png)
 ##Profile Page
