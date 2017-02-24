@@ -2,7 +2,7 @@
 
 code.valid? is a new helper app for programmers that let's users ask questions based on any language and get answers from millions of programmers from around the world!
 
-![mind blown] (assets/)
+![mind blown] (assets/mindblown.gif)
 
 As a user of code.valid?, you are able to build a custom profile that showcases your current skills as well as the skills you wish to work on. From there, post a question in the language of your choice. Leave a brief description of what you are hoping to solve and watch as programmers from all walks of life help you out.  
 
