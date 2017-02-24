@@ -13,10 +13,15 @@ As a user of code.valid?, you are able to build a custom profile that showcases 
 ![ERD] (assets/ERDv4.png)
 ##Login Page
 ![Login Page] (assets/Login Page.png)
-##Profile Page
-![Profile] (assets/Profile Page.png)
-##Posts
+##Home
 ![Home] (assets/Home Page.png)
+##Profile
+![Profile] (assets/Profile Page.png)
+##Post
+![Post] (assets/Posts.png)
+##Create Post 
+![Create] (assets/Create.png)
+
 
 ##Approach 
 
