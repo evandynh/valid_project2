@@ -1,6 +1,6 @@
 #Project 2: code.valid?
 
-code.valid? is a new helper app for programmers that let's users ask questions based on any language and get answers from millions of programmers from around the world!
+code.valid? is a new helper app for programmers that let's users ask questions based on any language and instantly get answers from millions of programmers around the world!
 
 ![mind blown] (assets/mindblown.gif)
 
