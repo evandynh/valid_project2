@@ -17,10 +17,11 @@ As a user of code.valid?, you are able to build a custom profile that showcases 
 ![Home] (assets/Home Page.png)
 ##Profile
 ![Profile] (assets/Profile Page.png)
-##Post
-![Post] (assets/Posts.png)
 ##Create Post 
 ![Create] (assets/Create.png)
+##Post
+![Post] (assets/Posts.png)
+
 
 
 ##Approach 
