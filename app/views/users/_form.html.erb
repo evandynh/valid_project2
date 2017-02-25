@@ -1,0 +1,42 @@
+
+<%= form_for(@user) do |u| %>
+
+  <div class="field">
+    <%= u.label :username %>
+    <%= u.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%#= u.label :password %>
+    <%#= u.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= u.label :email %>
+    <%= u.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= u.label :first_name %>
+    <%= u.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= u.label :last_name %>
+    <%= u.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= u.label :years_of_experience %>
+    <%= u.text_field :years_of_experience %>
+  </div>
+
+  <div class="field">
+    <%= u.label :skills %>
+    <%= u.text_field :skills %>
+  </div>
+
+  <div class="actions">
+    <%= u.submit %>
+  </div>
+<% end %>
