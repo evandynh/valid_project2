@@ -1,0 +1,21 @@
+<%= form_for(@comment) do |c| %>
+
+  <div class="field">
+    <%= c.label :description %>
+    <%= c.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= c.label :post_id %>
+    <%= c.text_field :post_id %>
+  </div>
+
+  <div class="field">
+    <%= c.label :user_id %>
+    <%= c.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= c.submit %>
+  </div>
+<% end %>

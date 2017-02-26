@@ -1,2 +1,15 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1>Post</h1>
+<div><%= @post.title %></div>
+<div><%= @post.description %></div>
+<div><%= @post.language %></div>
+
+<% @post.comments.each do |i| %>
+<br>
+  <%= i.description %><br>
+  User: <%= i.user_id %>
+  <div><%= link_to 'Show', i %></div>
+  <div><%= link_to 'Edit', edit_comment_path(i) %></div>
+  <div><%= link_to 'Delete', i, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+<% end %>
+
+<%= link_to "Back to posts", posts_path %>

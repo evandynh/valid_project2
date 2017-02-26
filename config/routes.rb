@@ -15,26 +15,26 @@ Rails.application.routes.draw do
   #-----------Posts Routes-------------
   get 'posts' => 'posts#index'
 
-  get 'users/user_id/posts/:id' => 'posts#show', as: :post
-
   get 'posts/new' => 'posts#new', as: :new_post
   post 'posts' => 'posts#create'
 
   get 'posts/:id/edit' => 'posts#edit', as: :edit_post
   patch 'posts/:id' => 'posts#update'
 
-  delete 'posts.:id' => 'posts#destroy'
+  get 'posts/:id' => 'posts#show', as: :post
+
+  delete 'posts/:id' => 'posts#destroy'
 
   #----------------Comment Routes---------------
   get 'comments' => 'comments#index'
-
-  get 'comments/:id' => 'comments#show', as: :comment
-
+  
   get 'comments/new' => 'comments#new', as: :new_comment
   post 'comments' => 'comments#create'
 
   get 'comments/:id/edit' => 'comments#edit', as: :edit_comment
   patch 'comments/:id' => 'comments#update'
+
+  get 'comments/:id' => 'comments#show', as: :comment
 
   delete 'comments.:id' => 'comments#destroy'
 

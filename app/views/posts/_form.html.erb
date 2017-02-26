@@ -1,0 +1,26 @@
+<%= form_for(@post) do |p| %>
+
+  <div class="field">
+    <%= p.label :title %>
+    <%= p.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= p.label :description %>
+    <%= p.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= p.label :language %>
+    <%= p.text_field :language %>
+  </div>
+
+  <div class="field">
+    <%= p.label :user_id %>
+    <%= p.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= p.submit %>
+  </div>
+<% end %>

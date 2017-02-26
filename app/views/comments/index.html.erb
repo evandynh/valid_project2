@@ -1,2 +1,14 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<h1>Comments</h1>
+
+<% @comments.each do |c| %>
+  <div><%= c.description %></div>
+  <div><%= c.created_at %></div>
+  <div><<%= c.updated_at %></div>
+  <div><%= link_to 'Show', c %></div>
+  <div><%= link_to 'Edit', edit_comment_path(c) %></div>
+  <div><%= link_to 'Delete', c, method: :delete, data: { confirm: 'Are you sure?' } %></div><br>
+<% end %>
+
+<%= link_to "Create new post", new_comment_path %><br>
+<%= link_to "Back to posts", posts_path %><br>
+<%= link_to "Back to users", users_path %>
