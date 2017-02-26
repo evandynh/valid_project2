@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+#------------Login Routes--------------
+  get '/login'     => 'sessions#new'
+  post '/login'    => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 #------------User Routes-------------
   get 'users' => 'users#index'
 
@@ -27,7 +32,7 @@ Rails.application.routes.draw do
 
   #----------------Comment Routes---------------
   get 'comments' => 'comments#index'
-  
+
   get 'comments/new' => 'comments#new', as: :new_comment
   post 'comments' => 'comments#create'
 
