@@ -1,10 +1,10 @@
 <h1>Welcome <%= @user.first_name %></h1>
-Created on <%= @user.created_at %>
+Created on <%= @user.created_at.to_formatted_s(:long) %><br>
 
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.years_of_experience %>
-<%= @user.skills %>
+<%= @user.first_name %><br>
+<%= @user.last_name %><br>
+<%= @user.years_of_experience %><br>
+<%= @user.skills %><br>
 <br>
 <% @user.posts.each do |i| %>
 <br>

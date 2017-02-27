@@ -5,13 +5,11 @@
         <div><%= post.title %></div>
         <div><%= post.description %></div>
         <div><%= post.language %></div>
-        <div><%= link_to 'Show', post %></div>
-        <div><%= link_to 'Edit', edit_post_path(post) %></div>
-        <div><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></div><br>
+        <div><%= link_to 'Show', "posts/#{post.id}" %></div>
+        <div><%#= link_to 'Edit', edit_user_post_path(post) %></div>
+        <div><%#= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></div><br>
       </div>
     <% end %>
 
-<%= link_to "Create new post", new_post_path %>
+<%= link_to "Create new post", new_user_post_path %>
 <br>
-<%= link_to "Back to all users", users_path %><br>
-<%= link_to "forward to comments", comments_path %>

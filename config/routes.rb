@@ -1,34 +1,40 @@
 Rails.application.routes.draw do
 
+  resources :users do
+    resources :posts
+  end
+
 #------------Login Routes--------------
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 #------------User Routes-------------
-  get 'users' => 'users#index'
-
-  get 'users/new' => 'users#new', as: :new_user
-  post 'users' => 'users#create'
-
-  get 'users/:id/edit' => 'users#edit', as: :edit_user
-  patch 'users/:id' => 'users#update'
-
-  get 'users/:id' => 'users#show', as: :user
-
-  delete 'users/:id' => 'users#destroy'
+  # get 'users' => 'users#index'
+  #
+  # get 'users/new' => 'users#new', as: :new_user
+  # post 'users' => 'users#create'
+  #
+  # get 'users/:id/edit' => 'users#edit', as: :edit_user
+  # patch 'users/:id' => 'users#update'
+  #
+  # get 'users/:id' => 'users#show', as: :user
+  #
+  # delete 'users/:id' => 'users#destroy'
 
   #-----------Posts Routes-------------
-  get 'posts' => 'posts#index'
 
-  get 'posts/new' => 'posts#new', as: :new_post
-  post 'posts' => 'posts#create'
 
-  get 'posts/:id/edit' => 'posts#edit', as: :edit_post
-  patch 'posts/:id' => 'posts#update'
-
-  get 'posts/:id' => 'posts#show', as: :post
-
-  delete 'posts/:id' => 'posts#destroy'
+  # get 'users/:user_id/posts' => 'posts#index'
+  #
+  # get 'users/:user_id/posts/new' => 'posts#new', as: :new_post
+  # post 'users/:user_id/posts' => 'posts#create'
+  #
+  # get 'users/:user_id/posts/:id/edit' => 'posts#edit', as: :edit_post
+  # patch 'users/:user_id/posts/:id' => 'posts#update'
+  #
+  # get 'users/:user_id/posts/:id' => 'posts#show', as: :post
+  #
+  # delete 'users/:user_id/posts/:id' => 'posts#destroy'
 
   #----------------Comment Routes---------------
   get 'comments' => 'comments#index'
