@@ -1,15 +1,17 @@
-<h1>Post</h1>
+<h1>Post: <%= @post.id %></h1>
 <div><%= @post.title %></div>
 <div><%= @post.description %></div>
 <div><%= @post.language %></div>
 
-<% @post.comments.each do |i| %>
-<br>
-  <%= i.description %><br>
-  User: <%= i.user_id %>
-  <div><%= link_to 'Show', i %></div>
-  <div><%= link_to 'Edit', edit_comment_path(i) %></div>
-  <div><%= link_to 'Delete', i, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-<% end %>
 
-<%= link_to "Back to posts", user_posts_path %>
+<% @post.comments.each do |c| %>
+<br>
+  <%= c.description %><br>
+  User: <%= c.user_id %>
+  <div><%= link_to 'Show', user_post_comment_path(current_user, @post.id, c) %></div>
+  <div><%= link_to 'Edit', edit_user_post_comment_path(current_user, @post.id, c) if current_user == c.user %></div>
+  <div><%= link_to 'Delete', user_post_comment_path(current_user, @post.id, c), method: :delete, data: { confirm: 'Are you sure?' } if current_user == c.user %></div><br>
+<% end %>
+<br>
+
+<%= link_to "Create comment", new_user_post_comment_path(current_user, @post.id) %> | <%= link_to "Back to posts", user_posts_path %>

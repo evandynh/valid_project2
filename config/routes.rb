@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
   resources :users do
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
   end
+
+  
 
 #------------Login Routes--------------
   get '/login'     => 'sessions#new'
@@ -37,18 +41,18 @@ Rails.application.routes.draw do
   # delete 'users/:user_id/posts/:id' => 'posts#destroy'
 
   #----------------Comment Routes---------------
-  get 'comments' => 'comments#index'
-
-  get 'comments/new' => 'comments#new', as: :new_comment
-  post 'comments' => 'comments#create'
-
-  get 'comments/:id/edit' => 'comments#edit', as: :edit_comment
-  patch 'comments/:id' => 'comments#update'
-
-  get 'comments/:id' => 'comments#show', as: :comment
-
-  delete 'comments.:id' => 'comments#destroy'
-
+  # get 'comments' => 'comments#index'
+  #
+  # get 'comments/new' => 'comments#new', as: :new_comment
+  # post 'comments' => 'comments#create'
+  #
+  # get 'comments/:id/edit' => 'comments#edit', as: :edit_comment
+  # patch 'comments/:id' => 'comments#update'
+  #
+  # get 'comments/:id' => 'comments#show', as: :comment
+  #
+  # delete 'comments.:id' => 'comments#destroy'
+  #
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
