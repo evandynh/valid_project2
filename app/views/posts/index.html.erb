@@ -2,12 +2,13 @@
 
 <% @posts.each do |post| %>
       <div>
-        <div><%= post.title %></div>
+        <p>posted by <%= "#{post.user.first_name} #{post.user.last_name}" %></p>
+        <div><strong><%= post.title %></strong></div>
         <div><%= post.description %></div>
         <div><%= post.language %></div>
         <div>
           <%= link_to 'View', user_post_path(current_user, post.id) %>
-          <%#= link_to 'Edit', edit_user_post_path(current_user, post.id) if current_user == post.user %> 
+          <%#= link_to 'Edit', edit_user_post_path(current_user, post.id) if current_user == post.user %>
           <%#= link_to 'Delete', user_post_path(current_user, post.id), method: :delete, data: { confirm: 'Are you sure?' } if current_user == post.user %>
       </div><br>
       </div>
