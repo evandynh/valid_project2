@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
-  
+  root 'users#index'
 
 #------------Login Routes--------------
   get '/login'     => 'sessions#new'
