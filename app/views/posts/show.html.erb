@@ -1,5 +1,6 @@
 <h1>Post: <%= @post.id %></h1>
-<div><%= @post.title %></div>
+<p>posted by <%= @post.user.first_name %></p>
+<div><strong><%= @post.title %></strong></div>
 <div><%= @post.description %></div>
 <div><%= @post.language %></div>
 <%= link_to 'Edit', edit_user_post_path(@user.id, @post) if current_user == @post.user %>
@@ -15,7 +16,7 @@
   <h2>Comments</h2>
   <% @post.comments.each do |c| %>
     <%= c.description %><br>
-    User: <%= c.user_id %> <%= link_to "Profile", user_path(c.user_id)  %>
+    posted by <%= "#{c.user.first_name} #{c.user.last_name}" %> <%= link_to "Profile", user_path(c.user_id)  %>
 
     <div>
       <%= link_to 'Edit', edit_user_post_comment_path(@user.id, @post.id, c) if current_user == c.user %>
