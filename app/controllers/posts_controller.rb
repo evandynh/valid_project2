@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
