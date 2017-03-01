@@ -15,6 +15,7 @@
       </div>
     <% end %>
 
+
 <%= link_to "Login to create post", login_path if current_user.nil? %>
 <%= link_to "Create new post", new_user_post_path if !current_user.nil? && current_user %>
 <br>
