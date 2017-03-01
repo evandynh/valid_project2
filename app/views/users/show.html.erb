@@ -1,12 +1,13 @@
 <h1>Welcome <%= @user.first_name %></h1>
 Created on <%= @user.created_at.to_formatted_s(:long) %><br>
 
+<%= image_tag @user.profile_pic.url(:medium) %><br>
 <%= @user.first_name %><br>
 <%= @user.last_name %><br>
 <%= @user.years_of_experience %><br>
 <%= @user.skills %><br>
 
-<%= link_to "Edit info", edit_user_path if current_user == @user.id %>
+<%= link_to "Edit info", edit_user_path if current_user == @user %>
 
 <br>
 <h2>Posts</h2>
