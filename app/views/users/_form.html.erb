@@ -3,42 +3,42 @@
 
   <div class="form-group">
     <%= u.label :username %>
-    <%= u.text_field :username, placeholder: "text here.." %>
-  </div>
-
-  <div class="form-group">
-    <%= u.label :email %>
-    <%= u.email_field :email, placeholder: "text here.." %>
+    <%= u.text_field :username, class: "form-control", placeholder: "text here.." %>
   </div>
 
   <div class="form-group password">
     <%= u.label :password %>
-    <%= u.password_field :password %>
+    <%= u.password_field :password, class: "form-control" %>
   </div>
 
   <div class="form-group password">
     <%= u.label :password_confirmation %>
-    <%= u.password_field :password_confirmation %>
+    <%= u.password_field :password_confirmation, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= u.label :profile_pic, 'Profile Picture' %>
+    <%= u.file_field :profile_pic, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= u.label :first_name %>
-    <%= u.text_field :first_name, placeholder: "text here.." %>
+    <%= u.text_field :first_name, class: "form-control", placeholder: "text here.." %>
   </div>
 
   <div class="form-group">
     <%= u.label :last_name %>
-    <%= u.text_field :last_name, placeholder: "text here.." %>
+    <%= u.text_field :last_name, class: "form-control", placeholder: "text here.." %>
   </div>
 
   <div class="form-group">
     <%= u.label :years_of_experience %>
-    <%= u.text_field :years_of_experience, placeholder: "text here.." %>
+    <%= u.text_field :years_of_experience, class: "form-control", placeholder: "text here.." %>
   </div>
 
   <div class="form-group">
     <%= u.label :skills %>
-    <%= u.text_field :skills, placeholder: "text here.." %>
+    <%= u.text_field :skills, class: "form-control", placeholder: "text here.." %>
   </div>
 
   <div class="actions">

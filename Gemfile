@@ -5,6 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#hide environment variables
+gem 'dotenv-rails', group: :development, require: 'dotenv/rails-now'
+
+#photo uploads
+gem 'paperclip'
+gem 'aws-sdk'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0.1'
@@ -53,6 +60,7 @@ end
 group :produciton do
   # Use postgresql as the database for Active Record
   gem 'pg', '~> 0.18'
+
 end
 
 

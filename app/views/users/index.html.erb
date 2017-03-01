@@ -4,6 +4,7 @@
   <thead>
         <tr>
            <th>Id</th>
+           <th>Img</th>
            <th>First Name</th>
            <th>Last Name</th>
            <th>Experience</th>
@@ -13,6 +14,7 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
+      <td><%= image_tag user.profile_pic.url(:thumb) %></td>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.years_of_experience %></td>
