@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    redirect_to root_path(current_user) if current_user.nil? || !current_user.admin
   end
 
   def show
@@ -13,7 +14,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.email.downcase!
     @user.username.downcase!
     if @user.save
       flash[:notice] = "You have successfully signed up!"

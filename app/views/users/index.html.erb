@@ -9,6 +9,9 @@
            <th>Last Name</th>
            <th>Experience</th>
            <th>Skills</th>
+           <th>Show</th>
+           <th>Edit</th>
+           <th>Delete</th>
         </tr>
      </thead>
   <% @users.each do |user| %>
@@ -19,13 +22,13 @@
       <td><%= user.last_name %></td>
       <td><%= user.years_of_experience %></td>
       <td><%= user.skills %></td>
-      <td><%= link_to 'Show', user %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', user if current_user.admin %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) if current_user.admin%></td>
+      <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } if current_user.admin %></td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to "Create new user", new_user_path %>
+<%= link_to "Create new user", new_user_path if current_user.nil? %>
 <br>
 <%= link_to "All Posts", user_posts_path(:user_id) %>
