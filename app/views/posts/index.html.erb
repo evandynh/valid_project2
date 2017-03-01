@@ -3,6 +3,7 @@
 <% @posts.each do |post| %>
       <div>
         <p><%= image_tag post.user.profile_pic.url(:thumb) %><%= "#{post.user.first_name} #{post.user.last_name}" %></p>
+        <div class="">posted on: <%= post.created_at.to_formatted_s(:long) %></div>
         <div><strong><%= post.title %></strong></div>
         <div><%= post.description %></div>
         <div><%= post.language %></div>
@@ -14,5 +15,6 @@
       </div>
     <% end %>
 
-<%= link_to "Create new post", new_user_post_path if current_user %>
+<%= link_to "Login to create post", login_path if current_user.nil? %>
+<%= link_to "Create new post", new_user_post_path if !current_user.nil? && current_user %>
 <br>
