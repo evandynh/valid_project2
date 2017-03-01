@@ -1,5 +1,5 @@
 <h1>Post: <%= @post.id %></h1>
-<p>posted by <%= @post.user.first_name %></p>
+<p><%= image_tag @post.user.profile_pic.url(:thumb) %> <%= @post.user.first_name %></p>
 <div><strong><%= @post.title %></strong></div>
 <div><%= @post.description %></div>
 <div><%= @post.language %></div>
@@ -15,8 +15,9 @@
 <% if !@post.comments.empty? %>
   <h2>Comments</h2>
   <% @post.comments.each do |c| %>
+    <%= image_tag c.user.profile_pic.url(:thumb) %>
     <%= c.description %><br>
-    posted by <%= "#{c.user.first_name} #{c.user.last_name}" %> <%= link_to "Profile", user_path(c.user_id)  %>
+    posted by <%= link_to c.user.username, user_path(c.user_id)  %>
 
     <div>
       <%= link_to 'Edit', edit_user_post_comment_path(@user.id, @post.id, c) if current_user == c.user %>

@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to login_path, alert: 'You must be logged in to access this page.' if current_user.nil?
   end
+
+  def unauthorized
+    redirect_to root_path, alert: "You have attempted a restricted access" unless current_user.admin?
+  end
 end
