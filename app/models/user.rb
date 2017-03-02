@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_attached_file :profile_pic,
                     styles: { medium: "250x250#", thumb: "50x50#" },
                     storage: :s3,

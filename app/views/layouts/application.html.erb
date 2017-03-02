@@ -3,20 +3,19 @@
     <head>
         <title>code.valid?</title>
         <%= csrf_meta_tags %>
-
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
     <body>
-    <%= render 'partials/form' %>
-    <div class="container">
-      <%= yield %>
-    </div>
+        <%= render 'partials/form' %>
+        <div class="container">
+            <%= yield %>
+        </div>
 
-    <footer>
-        <div>&copy; 2017 Flying Dutchmen, Inc.</div>
-    </footer>
+        <footer>
+            <div>&copy; 2017 Flying Dutchmen, Inc.</div>
+        </footer>
 
-</body>
+    </body>
 </html>

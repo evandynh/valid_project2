@@ -23,7 +23,7 @@
           <li class="media">
             <div class="media-left"><%= image_tag c.user.profile_pic.url(:thumb) %></div>
             <div class="media-body">
-              <div>posted by <%= link_to c.user.username, user_path(c.user_id) %></div>
+              <div>posted <%= time_ago_in_words(c.created_at) %> ago by <%= link_to c.user.username, user_path(c.user_id) %> </div>
               <div><%= c.description %></div><br>
               <div class="btn-group-xs" role="group" aria-label="...">
                 <%= link_to 'Edit', edit_user_post_comment_path(@user.id, @post.id, c), class: "btn btn-default link" if current_user == c.user%></button>

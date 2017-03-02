@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+
+
   def index
-    @users = User.all
+    @users = User.all.order("id ASC")
     redirect_to root_path(current_user) if current_user.nil? || !current_user.admin
   end
 

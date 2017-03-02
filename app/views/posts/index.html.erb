@@ -32,6 +32,6 @@
 
 <% end %>
 <%= link_to "Login to create post", login_path, class: "btn btn-default link" if current_user.nil? %>
-<%= link_to "Create new post", new_user_post_path, class: "btn btn-default link" if !current_user.nil? && current_user%></button>
+<%= link_to "Create new post", new_user_post_path(current_user), class: "btn btn-default link" if !current_user.nil? && current_user %>
 
 </div>
