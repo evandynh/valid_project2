@@ -5,52 +5,36 @@
     <div><%= image_tag @post.user.profile_pic.url(:thumb) %></div>
   </div>
   <div class="media-body">
-    <div class="big-title"><strong><%= @post.title %></strong></div>
-    <div><%= @post.description %></div>
-    <br>
-    <div class="btn-group-xs" role="group" aria-label="...">
-      <% if current_user == @post.user %>
-        <button class="btn btn-default link">
-          <%= link_to 'Edit', edit_user_post_path(@user.id, @post) %>
-        </button>
-      <% end %>
-      <% if current_user == @post.user %>
-        <button class="btn btn-default link">
-          <%= link_to 'Delete', user_post_path(@user.id, @post), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </button>
-      <% end %>
-        <button class="btn btn-default link">
-          <%= link_to 'Back to Posts',  user_posts_path(@user.id) %>
-        </button>
-    </div>
-
+      <div class="big-title"><strong><%= @post.title %></strong></div>
+      <div><%= @post.description %></div>
       <br>
-
-
+      <div class="btn-group-xs" role="group" aria-label="...">
+            <%= link_to 'Edit', edit_user_post_path(@user.id, @post), class: "btn btn-default link" if current_user == @post.user %>
+            <%= link_to 'Delete', user_post_path(@user.id, @post),
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default link" if current_user == @post.user %>
+            <%= link_to 'Back to Posts',  user_posts_path(@user.id), class: "btn btn-default link" %>
+      </div>
+      <br>
       <% if !@post.comments.empty? %>
-        <h3>Comments</h3>
-        <% @post.comments.each do |c| %>
-        <li class="media">
-          <div class="media-left">
-          <%= image_tag c.user.profile_pic.url(:thumb) %>
-          </div>
-          <div class="media-body">
-            <div>posted by <%= link_to c.user.username, user_path(c.user_id) %></div>
-            <div><%= c.description %></div><br>
 
-            <div class="btn-group-xs" role="group" aria-label="...">
-              <% if current_user == c.user %>
-              <button class="btn btn-default link"><%= link_to 'Edit', edit_user_post_comment_path(@user.id, @post.id, c) %></button>
-              <% end %>
-              <% if current_user == c.user %>
-              <button class="btn btn-default link"><%= link_to 'Delete', user_post_comment_path(@user.id, @post.id, c), method: :delete, data: { confirm: 'Are you sure?' } %></button>
-              <% end %>
-            <% end %>
+        <h3>Comments</h3>
+
+        <% @post.comments.each do |c| %>
+          <li class="media">
+            <div class="media-left"><%= image_tag c.user.profile_pic.url(:thumb) %></div>
+            <div class="media-body">
+              <div>posted by <%= link_to c.user.username, user_path(c.user_id) %></div>
+              <div><%= c.description %></div><br>
+              <div class="btn-group-xs" role="group" aria-label="...">
+                <%= link_to 'Edit', edit_user_post_comment_path(@user.id, @post.id, c), class: "btn btn-default link" if current_user == c.user%></button>
+                <%= link_to 'Delete', user_post_comment_path(@user.id, @post.id, c), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default link" if current_user == c.user %></button>
+              </div>
             </div>
-          </div>
         </li>
 
+        <% end %>
       <% end %>
+
       <h3>Add a comment</h3>
       <%= render "comments/form" %>
     </div>

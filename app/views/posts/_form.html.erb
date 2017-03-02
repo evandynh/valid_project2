@@ -1,18 +1,18 @@
 <%= form_for [@user, @post] do |p| %>
 
-  <div class="field">
+  <div>
     <%= p.label :title %>
-    <%= p.text_field :title, {class: 'form-control', placeholder: "Question", boom: 'chakalaka'} %>
+    <%= p.text_field :title, class: 'form-control', placeholder: "Title" %>
   </div>
 
-  <div class="field">
+  <div>
     <%= p.label :description %>
-    <%= p.text_area :description, placeholder: "description..." %>
+    <%= p.text_area :description, class: 'form-control', placeholder: "description..." %>
   </div>
 
-  <div class="field">
+  <div>
     <%= p.label :language %>
-    <%= p.text_field :language, placeholder: "language" %>
+    <%= p.text_field :language, class: 'form-control', placeholder: "language" %>
   </div>
 
   <div class="actions">

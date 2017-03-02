@@ -1,47 +1,37 @@
 <div class="post-container">
 
-  <% if current_user.nil? %>
+    <% if current_user.nil? %>
     <h1>Welcome to Code.Valid?</h1>
-  <% end %>
-  <% if !current_user.nil? && current_user %>
-    <h1>Welcome <%= current_user.username %></h1>
-  <% end %>
+    <% end %>
+    <% if !current_user.nil? && current_user %>
+    <h1>Welcome
+        <%= current_user.username %></h1>
+    <% end %>
 
-  <% @posts.each do |post| %>
-  <div class="media">
-    <div class="media-left">
-      <%= image_tag post.user.profile_pic.url(:thumb) %>
+    <% @posts.each do |post| %>
+    <div class="media">
+        <div class="media-left">
+            <%= image_tag post.user.profile_pic.url(:thumb) %>
+        </div>
+        <div class="media-body post">
+            <h3 class="media-heading"><%= post.title %></strong>
+              <div class="count">comments: <%= post.comments.count %></div>
+        </h3>
+        <div>posted on:
+            <%= post.created_at.to_formatted_s(:long) %></div>
+        <div><%= post.description %></div>
+        <div><%#= post.language %></div>
+        <br>
+        <div class="btn-group-xs" role="group" aria-label="...">
+            <%= link_to 'View', user_post_path(post.user, post.id), class: "btn btn-default link" if current_user%>
+            <%= link_to 'Edit', edit_user_post_path(post.user, post.id), class: "btn btn-default link" if current_user == post.user %>
+            <%= link_to 'Delete', user_post_path(post.user, post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default link" if current_user == post.user %>
+        </div>
     </div>
-    <div class="media-body">
-      <h3 class="media-heading"><%= post.title %></strong></h3>
-      <div>posted on: <%= post.created_at.to_formatted_s(:long) %></div>
-      <div> comments: <%= post.comments.count %></div>
-      <div><%= post.description %></div>
-      <div><%#= post.language %></div>
-      <br>
-      <div class="btn-group-xs" role="group" aria-label="...">
-        <% if current_user %>
-        <button type="button" class="btn btn-default link"><%= link_to 'View', user_post_path(post.user, post.id)%></button>
-        <% end %>
-        <% if current_user == post.user %>
-        <button type="button" class="btn btn-default link"><%= link_to 'Edit', edit_user_post_path(post.user, post.id) %></button>
-        <% end %>
-        <% if current_user == post.user %>
-        <button type="button" class="btn btn-default link"><%= link_to 'Delete', user_post_path(post.user, post.id), method: :delete, data: { confirm: 'Are you sure?' } %></button>
-        <% end %>
-      </div>
-    </div>
-  </div>
+</div>
 
-
-
-  <% end %>
-
-  <% if current_user.nil? %>
-    <button type="button" class="btn btn-default link "><%= link_to "Login to create post", login_path %></button>
-  <% end %>
-  <% if !current_user.nil? && current_user %>
-    <button type="button" class="btn btn-default link"><%= link_to "Create new post", new_user_post_path %></button>
-  <% end %>
+<% end %>
+<%= link_to "Login to create post", login_path, class: "btn btn-default link" if current_user.nil? %>
+<%= link_to "Create new post", new_user_post_path, class: "btn btn-default link" if !current_user.nil? && current_user%></button>
 
 </div>

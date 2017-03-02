@@ -1,26 +1,43 @@
-<h1> Welcome <%= @user.first_name %></h1>
-Created on <%= @user.created_at.to_formatted_s(:long) %><br>
+<div class="profile">
+    <div class="big-title"><%= @user.username %></div>
+    <!-- Created on <%= @user.created_at.to_formatted_s(:long) %><br> -->
+    <div class="media">
+        <%= image_tag @user.profile_pic.url(:medium) %>
+        <div class="media-body">
+            <h3 class="media-heading profile-heading">
+                Name:
+                <%= @user.first_name %>
+                <%= @user.last_name %>
+                | Experience:
+                <%= @user.years_of_experience %>
+                | Skills:
+                <%= @user.skills %><br>
+            </h3>
+        </div>
+    </div>
 
-<%= image_tag @user.profile_pic.url(:medium) %><br>
-<%= @user.first_name %><br>
-<%= @user.last_name %><br>
-<%= @user.years_of_experience %><br>
-<%= @user.skills %><br>
+    <%= link_to "Edit info", edit_user_path, class: "btn btn-default link" if current_user == @user %>
 
-<%= link_to "Edit info", edit_user_path if current_user == @user %>
+    <br>
+    <% if !@user.posts.empty? %>
+</div>
 
-<br>
-<% if !@user.posts.empty? %>
-  <h2>Posts</h2>
-  <% @user.posts.each do |post| %>
-  <br>
-    <%= post.title %>
-    <%= post.description %>
-    <%= post.language %>
-    <div><%= link_to 'Show', user_post_path(current_user, post.id) if current_user == @user %></div>
-    <div><%= link_to 'Edit', edit_user_post_path(current_user, post.id) if current_user == @user %></div>
-    <div><%= link_to 'Delete', user_posts_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } if current_user == @user %></div>
-  <% end %>
+</div>
 <% end %>
+<div class="post-section">
+  <h2>Posts</h2>
+  <div class="media">
+    <% @user.posts.each do |post| %>
+    <div><strong><%= post.title %></strong></div>
+    <div><%= post.description %>
+    <div>Language: <%= post.language %>
+    <div class="btn-group-xs" role="group" aria-label="...">
+      <%= link_to 'Show', user_post_path(current_user, post.id), class: "btn btn-default link" if current_user == @user %>
+      <%= link_to 'Edit', edit_user_post_path(current_user, post.id), class: "btn btn-default link" if current_user == @user %>
+      <%= link_to 'Delete', user_posts_path(post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default link" if current_user == @user %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <br>
-<%= link_to "Go to posts", user_posts_path(current_user) %>
+<%= link_to "Go to posts", user_posts_path(current_user), class: "btn btn-default link" %>
