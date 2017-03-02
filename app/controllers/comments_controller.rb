@@ -32,7 +32,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     redirect_to user_post_path(current_user, @post) if current_user != @comment.user
-
   end
 
   def update

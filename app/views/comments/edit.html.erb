@@ -1,5 +1,8 @@
-<h1>Edit Comment</h1>
 
-<%= render 'form' %>
+<div class="container">
+  <h1>Edit Comment</h1>
 
-<%= link_to "Back to post", user_post_path(current_user, @post) %>
+  <%= render 'form' %>
+<br>
+  <button class="btn btn-default link"><%= link_to "Back to post", user_post_path(current_user, @post) %></button>
+</div>

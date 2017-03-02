@@ -1,11 +1,9 @@
 <%= form_for [@user, @post, @comment] do |c| %>
 
-  <div class="field">
-    <%= c.label :description %>
-    <%= c.text_area :description %>
-  </div>
+  <%= c.text_area :description, class: "form-control", placeholder: "Text here" %>
 
-  <div class="actions">
-    <%= c.submit %>
-  </div>
+  <%= c.submit %>
+
+</form>
+
 <% end %>

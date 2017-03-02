@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ValidProject2</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>code.valid?</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <% if current_user %>
-      Logged in as: <%=" #{current_user.first_name} #{current_user.last_name}" %> <%= link_to 'Log Out', logout_path, method: :delete %> | <%= link_to "Profile", user_path(current_user) %>
-    <% else %>
-      <%= link_to 'Log In', login_path %> | <%= link_to 'Sign Up', new_user_path %>
-    <% end %>
+    <body>
+    <%= render 'partials/form' %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
-  </body>
+    <footer>
+        <div>&copy; 2017 Flying Dutchmen, Inc.</div>
+    </footer>
+
+</body>
 </html>

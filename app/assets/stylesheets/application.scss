@@ -12,9 +12,73 @@
  *
 
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
 
- img {
-   border-radius: 10px;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.big-title {
+  font-size: 35px;
+}
+
+.btn-success {
+  background-color: indianred;
+  border-color: indianred;
+}
+
+.link {
+  background-color: dodgerblue;
+}
+
+.media-body {
+  border-top: 2px solid lightgrey;
+  margin-top: 10px;
+}
+
+.media {
+  margin: 40px 0 40px 10px;
+}
+
+.navbar-default {
+  background-color: dodgerblue;
+
+  .navbar-text {
+    color: white;
+    margin: auto 5px;
+  }
+
+  .navbar-brand {
+    color: white;
+  }
+}
+
+.post-container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+a {
+  color: white;
+  &:hover {
+    color: white;
+    text-decoration: none;
+}
+}
+
+body {
+  padding-top: 60px;
+}
+
+footer {
+  margin: 100px 10px;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+img {
+  border-radius: 10px;
+}
+ li {
+   list-style-type: none;
  }
