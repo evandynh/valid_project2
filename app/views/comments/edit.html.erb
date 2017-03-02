@@ -3,6 +3,10 @@
   <h1>Edit Comment</h1>
 
   <%= render 'form' %>
-<br>
-  <%= link_to "Back to post", user_post_path(current_user, @post), class: "btn btn-default link" %>
+
+  <br>
+
+  <div class="btn-group-xs margin" role="group" aria-label="...">
+    <%= link_to "Back to post", user_post_path(current_user, @post), class: "btn btn-default" %>
+  </div>
 </div>

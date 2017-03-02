@@ -19,9 +19,17 @@
   font-size: 35px;
 }
 
+.md-title {
+  font-size: 20px;
+}
+
 .btn-success {
   background-color: indianred;
   border-color: indianred;
+}
+
+.bottom-btn {
+  margin-bottom: 50px;
 }
 
 .count {
@@ -72,6 +80,10 @@
   margin: 40px 0 40px 10px;
 }
 
+.margin {
+  margin-top: 12px;
+}
+
 .profile-heading {
   margin-top: 25px;
 }
@@ -92,6 +104,13 @@
   color: white;
 }
 
+.navbar-fixed-bottom {
+    bottom: 0;
+    margin-bottom: 0;
+    border-width: 15px 15px 0;
+    color: white;
+}
+
 a {
   // color: white;
   &:hover {
@@ -107,11 +126,25 @@ a {
 
 body {
   padding-top: 60px;
+  padding-bottom: 45px;
 }
 
-footer {
-  margin: 100px 10px;
+html {
+  position: relative;
+  min-height: 100%;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 45px;
+  background-color: #80C0C0;
+  color: white;
+  padding-top: 14px;
+}
+
 
 h1 {
   margin-left: 20px;

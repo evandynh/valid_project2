@@ -9,10 +9,10 @@
       <div><%= @post.description %></div>
       <br>
       <div class="btn-group-xs" role="group" aria-label="...">
+            <%= link_to 'Back',  user_posts_path(@user.id), class: "btn btn-default link" %>
             <%= link_to 'Edit', edit_user_post_path(@user.id, @post), class: "btn btn-default link" if current_user == @post.user %>
             <%= link_to 'Delete', user_post_path(@user.id, @post),
             method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default link" if current_user == @post.user %>
-            <%= link_to 'Back to Posts',  user_posts_path(@user.id), class: "btn btn-default link" %>
       </div>
       <br>
       <% if !@post.comments.empty? %>

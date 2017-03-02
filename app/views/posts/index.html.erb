@@ -1,7 +1,13 @@
 <div class="post-container">
 
     <% if current_user.nil? %>
-    <h1>Welcome to Code.Valid?</h1>
+    <div class="jumbotron">
+      <h1>Welcome to Code.Valid?</h1>
+      <p>Tired of spending hours and hours on the same problem.
+        Join our app today to get answers from millions of programmers around the world! Choose your question by language or search from all the most current posts. <br><br>
+        Sign up above or below to join our community.
+      </p>
+    </div>
     <% end %>
     <% if !current_user.nil? && current_user %>
     <h1>Welcome
@@ -22,7 +28,7 @@
         <div><%= post.description %></div>
         <div><%#= post.language %></div>
         <br>
-        <div class="btn-group-xs" role="group" aria-label="...">
+        <div class="btn-group-xs margin" role="group" aria-label="...">
             <%= link_to 'View', user_post_path(post.user, post.id), class: "btn btn-default link" if current_user%>
             <%= link_to 'Edit', edit_user_post_path(post.user, post.id), class: "btn btn-default link" if current_user == post.user %>
             <%= link_to 'Delete', user_post_path(post.user, post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default link" if current_user == post.user %>
@@ -31,7 +37,9 @@
 </div>
 
 <% end %>
-<%= link_to "Login to create post", login_path, class: "btn btn-default link" if current_user.nil? %>
-<%= link_to "Create new post", new_user_post_path(current_user), class: "btn btn-default link" if !current_user.nil? && current_user %>
+<div class="bottom-btn">
+  <%= link_to "Login to create post", login_path, class: "btn btn-default link" if current_user.nil? %>
+  <%= link_to "Create new post", new_user_post_path(current_user), class: "btn btn-default link" if !current_user.nil? && current_user %>
+</div>
 
 </div>

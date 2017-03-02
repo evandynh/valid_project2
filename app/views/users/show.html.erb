@@ -1,6 +1,5 @@
 <div class="profile">
-    <div class="big-title"><%= @user.username %></div>
-    <!-- Created on <%= @user.created_at.to_formatted_s(:long) %><br> -->
+    <div class="big-title"><%= @user.username.upcase %></div>
     <div class="media">
         <%= image_tag @user.profile_pic.url(:medium) %>
         <div class="media-body">
@@ -17,27 +16,23 @@
     </div>
 
     <%= link_to "Edit info", edit_user_path, class: "btn btn-default link" if current_user == @user %>
+  </div>
 
-    <br>
-    <% if !@user.posts.empty? %>
+
 </div>
-
+<% if !@user.posts.empty? %>
+<div class="post-section">
+  <h2>Your Posts</h2>
+    <% @user.posts.each do |post| %>
+    <div class="media">
+    <div class="md-title"><strong><%= post.title %></strong></div>
+    <div class="md-title"><%= post.description %></div>
+    <div>Language: <%= post.language %></div>
+    <div class="btn-group-xs margin" role="group" aria-label="...">
+      <%= link_to 'Show', user_post_path(current_user, post.id), class: "btn btn-default link" %>
+    </div>
+  </div>
+    <% end %>
+  <%= link_to "Go to posts", user_posts_path(current_user), class: "btn btn-default link" %>
 </div>
 <% end %>
-<div class="post-section">
-  <h2>Posts</h2>
-  <div class="media">
-    <% @user.posts.each do |post| %>
-    <div><strong><%= post.title %></strong></div>
-    <div><%= post.description %>
-    <div>Language: <%= post.language %>
-    <div class="btn-group-xs" role="group" aria-label="...">
-      <%= link_to 'Show', user_post_path(current_user, post.id), class: "btn btn-default link" if current_user == @user %>
-      <%= link_to 'Edit', edit_user_post_path(current_user, post.id), class: "btn btn-default link" if current_user == @user %>
-      <%= link_to 'Delete', user_posts_path(post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default link" if current_user == @user %>
-    </div>
-    <% end %>
-  </div>
-</div>
-<br>
-<%= link_to "Go to posts", user_posts_path(current_user), class: "btn btn-default link" %>
