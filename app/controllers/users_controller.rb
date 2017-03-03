@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all.order("id ASC")
@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def new
@@ -27,11 +26,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       redirect_to user_path(@user)
     else
@@ -40,7 +37,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
   end
@@ -49,4 +45,9 @@ private
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation, :profile_pic, :email, :first_name, :last_name, :years_of_experience, :skills)
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
 end

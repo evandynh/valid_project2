@@ -15,6 +15,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  font-family: Arial;
+}
+
+.container {
+  color: #737373;
+}
+
+.color {
+  color: white;
+}
+
 .big-title {
   font-size: 35px;
 }
@@ -47,13 +59,12 @@
 
 #error_explanation {
   background-color: indianred;
-  padding: 5px;
-  padding-left: 20px;
+  padding: 5px 5px 5px 20px;
   color: white;
 }
 
 .link {
-  background-color: #80C0C0;
+  background-color: #D9853B;
   color: white;
 }
 
@@ -85,9 +96,8 @@
 }
 
 .post-section {
-  background-color: #80C0C0;
+  background-color: #74AFAD;
   padding: 55px;
-  // text-align: center;
   color: white;
 }
 
@@ -104,7 +114,7 @@
 }
 
 .navbar-default {
-  background-color: #4DA6A6;
+  background-color: #74AFAD;
 
   .navbar-text {
     color: white;
@@ -120,10 +130,10 @@
 }
 
 .navbar-fixed-bottom {
-    bottom: 0;
-    margin-bottom: 0;
-    border-width: 15px 15px 0;
-    color: white;
+  bottom: 0;
+  margin-bottom: 0;
+  border-width: 15px 15px 0;
+  color: white;
 }
 
 a {
@@ -131,6 +141,12 @@ a {
   &:hover {
     // color: white;
     text-decoration: none;
+  }
+}
+
+.post-container {
+  h1 {
+  margin-left: 20px;
   }
 }
 
@@ -142,6 +158,7 @@ a {
 body {
   padding-top: 60px;
   padding-bottom: 45px;
+  // background-color: #F6F6F6;
 }
 
 html {
@@ -155,14 +172,9 @@ html {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 45px;
-  background-color: #80C0C0;
+  background-color: #74AFAD;
   color: white;
   padding-top: 14px;
-}
-
-
-h1 {
-  margin-left: 20px;
 }
 
 img {

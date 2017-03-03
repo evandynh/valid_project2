@@ -1,21 +1,21 @@
 class PostsController < ApplicationController
+  before_action :set_user, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
+
   def index
     @posts = Post.all.order("updated_at DESC")
   end
 
   def show
-    @user = current_user
-    @post = Post.find(params[:id])
     @comment = Comment.new
   end
 
   def new
-    @user = current_user
     @post = Post.new
   end
 
   def create
-    @user = current_user
     @post = Post.new(post_params)
     @post.user_id = @user.id
     if @post.save
@@ -26,14 +26,10 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @post = Post.find(params[:id])
     redirect_to user_posts_path(current_user) if current_user != @post.user
   end
 
   def update
-    @user = current_user
-    @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
       redirect_to user_post_path(current_user, @post)
     else
@@ -42,8 +38,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @user = current_user
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_posts_path
   end
@@ -52,5 +46,14 @@ private
   def post_params
     params.require(:post).permit(:title, :description, :language)
   end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
+  end
+
 
 end
