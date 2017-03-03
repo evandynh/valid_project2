@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:login][:username].downcase)
     if user && user.authenticate(params[:login][:password])
       session[:user_id] = user.id.to_s
-      redirect_to user_posts_path(user), notice: 'Successfully logged in!'
+      redirect_to user_posts_path(user)
     else
       flash.now.alert = "Incorrect email or password, try again."
       render :new
@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    redirect_to login_path, notice: "Logged out!"
+    redirect_to login_path
   end
 end

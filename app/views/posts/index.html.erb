@@ -23,12 +23,12 @@
             <h3 class="media-heading"><%= post.title %></strong>
               <div class="count">comments: <%= post.comments.count %></div>
         </h3>
-        <div>posted on:
-            <%= post.created_at.to_formatted_s(:long) %></div>
+        <div class="post-on">posted on:
+            <%= post.created_at.strftime("%B %-d, %Y") %></div>
         <div><%= post.description %></div>
         <div><%#= post.language %></div>
         <br>
-        <div class="btn-group-xs margin" role="group" aria-label="...">
+        <div class="btn-group-xs" role="group" aria-label="...">
             <%= link_to 'View', user_post_path(post.user, post.id), class: "btn btn-default link" if current_user%>
             <%= link_to 'Edit', edit_user_post_path(post.user, post.id), class: "btn btn-default link" if current_user == post.user %>
             <%= link_to 'Delete', user_post_path(post.user, post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default link" if current_user == post.user %>

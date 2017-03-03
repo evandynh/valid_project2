@@ -21,5 +21,6 @@ class User < ApplicationRecord
   has_secure_password
   validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
   validates :username, presence: true, uniqueness: true
+  validates :password, presence: true, confirmation: true, length: { minimum: 8 }
 
 end

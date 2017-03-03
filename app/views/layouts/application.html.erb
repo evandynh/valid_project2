@@ -9,6 +9,15 @@
 
     <body>
         <%= render 'partials/form' %>
+
+        <% if notice %>
+          <%= notice %>
+        <% end %>
+
+        <% if alert %>
+          <%= alert %>
+        <% end %>
+
         <div class="container">
             <%= yield %>
         </div>

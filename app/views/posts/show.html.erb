@@ -6,7 +6,8 @@
   </div>
   <div class="media-body">
       <div class="big-title"><strong><%= @post.title %></strong></div>
-      <div><%= @post.description %></div>
+      <div class="post-on">posted on: <%= @post.created_at.strftime("%B %-d, %Y") %></div>
+      <div class="small-title"><%= @post.description %></div>
       <br>
       <div class="btn-group-xs" role="group" aria-label="...">
             <%= link_to 'Back',  user_posts_path(@user.id), class: "btn btn-default link" %>
