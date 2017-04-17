@@ -71,7 +71,7 @@ Last, I worked my way into paperclip and bootstrap. I was a great intro to S3 an
 - Bootstrap
 
 
-##Unsolved Problems
+## Unsolved Problems
 - I was hoping to dig into a search bar with full functionality and ran out of time.
 - I have a language attribute built into my post model which I planned to use for the search engine that I didn't get to implement.
 - I did not have time to do a like button, upvotes, or tags. I plan to get back to those in the future.
